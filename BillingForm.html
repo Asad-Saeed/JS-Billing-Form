@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Billing Form</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Icon Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center text-white py-sm-3 mb-sm-3 mb-md-5">
+        Billig Form
+      </h1>
+      <table class="table text-left">
+        <thead class="thead-dark">
+          <tr>
+            <th class="col-6">Customer Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Customer Name:</th>
+
+            <td>
+              <input
+                type="text"
+                id="data1"
+                class="form-control"
+                value="Asad Saeed"
+              />
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Customer ID:</th>
+            <td>
+              <input
+                type="text"
+                id="data2"
+                class="form-control"
+                value="Customer ID: 123"
+              />
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Order No:</th>
+            <td>
+              <input
+                type="text"
+                id="data3"
+                class="form-control"
+                value="Order No: QE12345"
+              />
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Order Date/Time:</th>
+            <td>
+              <input type="datetime-local" id="data4" class="form-control" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="container text-center">
+      <br />
+      <hr />
+      <br />
+      <table class="table text-left">
+        <thead class="thead-dark">
+          <tr>
+            <th class="col-6">Product Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Product Name:</th>
+            <td><input type="text" id="prodName" class="form-control" /></td>
+          </tr>
+          <tr>
+            <th scope="row">Unit Price:</th>
+            <td><input type="number" id="unitPrice" class="form-control" /></td>
+          </tr>
+          <tr>
+            <th scope="row">Sale Quantity:</th>
+            <td><input type="number" id="quantity" class="form-control" /></td>
+          </tr>
+          <!-- <tr>
+            <th scope="row">Discount:</th>
+
+            <td>
+              <input type="number" id="Disc" class="form-control" />
+            </td>
+          </tr> -->
+        </tbody>
+      </table>
+      <!-- Invoice -->
+      <div class="container bg-info">
+        <div class="form form-group p-5">
+          <h1>Invoice</h1>
+          <button class="btn btn-dark px-4 m-3" onclick="Addtocart()">
+            <i class="fa fa-shopping-cart p-2"></i>
+            Add to Cart
+          </button>
+          <!-- invoice Table -->
+          <div class="row">
+            <div class="col-md-8">
+              <table id="Invoice" class="table">
+                <th>ProductName</th>
+                <th>UnitPrice</th>
+                <th>Quantity</th>
+                <th>Amount</th>
+              </table>
+            </div>
+            <div class="col-md-4">
+              <table cellpadding="5px" class="">
+                <tr>
+                  <td><h5>VAT-ST:</h5></td>
+                  <td>
+                    <input
+                      id="vat"
+                      value="0"
+                      class="form-control"
+                      type="text"
+                      style="width: 50px"
+                    />
+                  </td>
+                  <td><h5>%</h5></td>
+                </tr>
+
+                <tr>
+                  <td><h5>Discount:</h5></td>
+                  <td>
+                    <input
+                      id="Disc"
+                      value="0"
+                      class="form-control"
+                      type="text"
+                      style="width: 50px"
+                    />
+                  </td>
+                  <td><h5>%</h5></td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5>Grand Total:</h5>
+                  </td>
+                  <td colspan="2">
+                    <input
+                      id="grandtotal"
+                      class="form-control"
+                      value="0"
+                      readonly
+                      type="text"
+                      style="width: 100px"
+                    />
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5>Total Payment:</h5>
+                  </td>
+                  <td colspan="2">
+                    <input
+                      value="0"
+                      readonly
+                      id="finalamount"
+                      class="form-control"
+                      type="text"
+                      style="width: 100px"
+                    />
+                  </td>
+                  <td></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <button
+            class="btn btn-danger px-4 m-3"
+            onclick="window.location.reload()"
+          >
+            <!-- Built in Function  window.location.reload() -->
+            <i class="fa fa-trash p-2"></i>
+            Clear Screen
+          </button>
+          <button class="btn btn-success px-4 m-3" onclick="GenIn()">
+            <i class="fa fa-file p-2"></i>
+            Generate Invoice
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="index.js"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
